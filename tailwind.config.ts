@@ -64,8 +64,8 @@ export default {
 				}
 			},
 			fontFamily: {
-				sans: ['Montserrat', 'sans-serif'],
-				serif: ['Merriweather', 'serif'],
+				sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+				body: ['PT Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
