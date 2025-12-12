@@ -114,10 +114,10 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="fixed top-0 w-full z-50 bg-background/60 backdrop-blur-xl border-b border-border/50">
+      <header className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md border-b border-border">
         <nav className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <a href="#hero" className="text-2xl font-bold font-sans tracking-tight">
+            <a href="#hero" className="text-2xl font-bold font-serif tracking-tight">
               Богданов<span className="text-primary">.</span>
             </a>
 
@@ -164,24 +164,24 @@ export default function Index() {
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
-              <div className="inline-block px-5 py-2 bg-primary/5 backdrop-blur-sm rounded-full mb-8 border border-primary/20">
-                <span className="text-primary text-sm font-semibold tracking-wide">Сценарист · Драматург</span>
+              <div className="inline-block px-6 py-2 bg-muted rounded-full mb-8">
+                <span className="text-foreground text-sm font-medium tracking-[0.15em] uppercase">Сценарист · Драматург</span>
               </div>
-              <h1 className="text-6xl md:text-8xl font-bold font-sans mb-8 leading-[0.95] tracking-tight">
+              <h1 className="text-5xl md:text-7xl font-bold font-serif mb-8 leading-[1.1] tracking-tight">
                 Богданов
                 <br />
                 <span className="text-primary">Сергей</span>
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-10 leading-relaxed max-w-2xl">
+              <p className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl font-light">
                 Превращаю идеи в истории, которые остаются в сердцах зрителей. 
                 Более 50 реализованных проектов за 12 лет в индустрии.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button size="lg" className="font-semibold px-8 py-6 text-base rounded-2xl hover:scale-105 transition-transform">
+                <Button size="lg" className="font-medium px-10 h-16 text-base rounded-full hover:bg-primary/90 transition-colors">
                   <Icon name="Mail" size={20} className="mr-2" />
                   Связаться
                 </Button>
-                <Button size="lg" variant="outline" className="font-semibold px-8 py-6 text-base rounded-2xl hover:scale-105 transition-transform">
+                <Button size="lg" variant="outline" className="font-medium px-10 h-16 text-base rounded-full border-2 hover:bg-muted transition-colors">
                   <Icon name="Download" size={20} className="mr-2" />
                   Портфолио PDF
                 </Button>
@@ -189,33 +189,31 @@ export default function Index() {
             </div>
 
             <div className="relative animate-slide-up">
-              <div className="relative rounded-[2rem] overflow-hidden border border-border/30 shadow-2xl bg-gradient-to-br from-card to-muted/30">
+              <div className="relative rounded-[3.125rem] overflow-hidden shadow-lg bg-primary/5">
                 <img
                   src="https://cdn.poehali.dev/projects/c19987b3-06bc-42cc-a513-9452a741087a/files/302de4b7-6e18-434b-acf1-e7fec594851e.jpg"
                   alt="Сергей Богданов"
-                  className="w-full h-[600px] object-cover opacity-90"
+                  className="w-full h-[600px] object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
               </div>
-              <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-primary/30 rounded-full blur-3xl opacity-60 animate-float" />
-              <div className="absolute -top-8 -left-8 w-40 h-40 bg-primary/20 rounded-full blur-3xl opacity-50 animate-float" style={{ animationDelay: '1s' }} />
             </div>
           </div>
         </div>
       </section>
 
-      <section id="portfolio" className="py-24 px-6 bg-muted/20">
+      <section id="portfolio" className="py-24 px-6 bg-muted/30">
         <div className="container mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-bold font-sans mb-6 tracking-tight">Портфолио</h2>
-            <p className="text-xl md:text-2xl text-muted-foreground">Избранные проекты последних лет</p>
+            <h2 className="text-4xl md:text-5xl font-bold font-serif mb-6 tracking-tight">Портфолио</h2>
+            <p className="text-lg md:text-xl text-muted-foreground font-light">Избранные проекты последних лет</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <Card
                 key={project.id}
-                className="group overflow-hidden cursor-pointer border border-border/50 transition-all duration-500 hover:border-primary/60 hover:shadow-2xl hover:shadow-primary/10 bg-card/50 backdrop-blur-sm rounded-[1.75rem]"
+                className="group overflow-hidden cursor-pointer border-0 transition-all duration-300 hover:shadow-xl bg-card rounded-[1.25rem]"
                 style={{ animationDelay: `${index * 100}ms` }}
                 onMouseEnter={() => setActiveProject(project.id)}
                 onMouseLeave={() => setActiveProject(null)}
@@ -226,19 +224,19 @@ export default function Index() {
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className={`absolute inset-0 bg-gradient-to-t from-background/95 via-background/40 to-transparent transition-opacity duration-500 ${
-                    activeProject === project.id ? 'opacity-100' : 'opacity-70'
+                  <div className={`absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent transition-opacity duration-300 ${
+                    activeProject === project.id ? 'opacity-100' : 'opacity-80'
                   }`} />
                   <div className="absolute bottom-6 left-6 right-6">
-                    <span className="inline-block px-4 py-1.5 bg-primary/90 backdrop-blur-sm rounded-full text-xs font-semibold mb-3 tracking-wide">
+                    <span className="inline-block px-4 py-1.5 bg-primary text-primary-foreground rounded-full text-xs font-medium mb-3 tracking-wide">
                       {project.year}
                     </span>
-                    <h3 className="text-3xl font-bold font-sans mb-2 tracking-tight">{project.title}</h3>
+                    <h3 className="text-2xl font-bold font-serif mb-2 tracking-tight">{project.title}</h3>
                     <p className="text-sm text-muted-foreground font-medium">{project.type}</p>
                   </div>
                 </div>
-                <div className="p-8">
-                  <p className="text-muted-foreground leading-relaxed text-base">{project.description}</p>
+                <div className="p-6">
+                  <p className="text-muted-foreground leading-relaxed text-base font-light">{project.description}</p>
                 </div>
               </Card>
             ))}
@@ -250,8 +248,8 @@ export default function Index() {
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>
-              <h2 className="text-5xl md:text-6xl font-bold font-sans mb-10 tracking-tight">О сценаристе</h2>
-              <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
+              <h2 className="text-4xl md:text-5xl font-bold font-serif mb-10 tracking-tight">О сценаристе</h2>
+              <div className="space-y-4 text-lg leading-relaxed text-muted-foreground font-light">
                 <p>
                   Я верю, что хорошая история начинается с честного взгляда на человека. 
                   Не героя, не злодея — просто человека со своими надеждами и страхами.
@@ -285,12 +283,12 @@ export default function Index() {
             </div>
 
             <div className="relative">
-              <Card className="p-10 border border-border/50 bg-card/50 backdrop-blur-sm rounded-[1.75rem]">
-                <h3 className="text-3xl font-bold font-sans mb-8 tracking-tight">Образование & Опыт</h3>
+              <Card className="p-10 border-0 bg-card rounded-[1.25rem]">
+                <h3 className="text-2xl font-bold font-serif mb-8 tracking-tight">Образование & Опыт</h3>
                 <div className="space-y-6">
                   <div className="flex gap-5">
-                    <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-                      <Icon name="GraduationCap" size={26} className="text-primary" />
+                    <div className="flex-shrink-0 w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Icon name="GraduationCap" size={24} className="text-primary" />
                     </div>
                     <div>
                       <div className="font-semibold mb-1.5 text-base">ВГИК, Факультет сценарного мастерства</div>
@@ -299,8 +297,8 @@ export default function Index() {
                   </div>
 
                   <div className="flex gap-5">
-                    <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-                      <Icon name="Briefcase" size={26} className="text-primary" />
+                    <div className="flex-shrink-0 w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Icon name="Briefcase" size={24} className="text-primary" />
                     </div>
                     <div>
                       <div className="font-semibold mb-1.5 text-base">Главный сценарист, "Кинокомпания CTB"</div>
@@ -309,8 +307,8 @@ export default function Index() {
                   </div>
 
                   <div className="flex gap-5">
-                    <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-                      <Icon name="Award" size={26} className="text-primary" />
+                    <div className="flex-shrink-0 w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Icon name="Award" size={24} className="text-primary" />
                     </div>
                     <div>
                       <div className="font-semibold mb-1.5 text-base">Лауреат премии "Золотое перо"</div>
@@ -324,25 +322,25 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="services" className="py-24 px-6 bg-muted/20">
+      <section id="services" className="py-24 px-6 bg-muted/30">
         <div className="container mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-bold font-sans mb-6 tracking-tight">Услуги</h2>
-            <p className="text-xl md:text-2xl text-muted-foreground">Что я могу сделать для вашего проекта</p>
+            <h2 className="text-4xl md:text-5xl font-bold font-serif mb-6 tracking-tight">Услуги</h2>
+            <p className="text-lg md:text-xl text-muted-foreground font-light">Что я могу сделать для вашего проекта</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
               <Card
                 key={service.title}
-                className="p-10 text-center hover:border-primary/60 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 group bg-card/50 backdrop-blur-sm border-border/50 rounded-[1.75rem]"
+                className="p-8 text-center hover:shadow-lg transition-all duration-300 group bg-card border-0 rounded-[1.25rem]"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="w-20 h-20 rounded-[1.25rem] bg-primary/10 flex items-center justify-center mx-auto mb-8 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
-                  <Icon name={service.icon as any} size={36} className="text-primary" />
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/15 transition-all duration-200">
+                  <Icon name={service.icon as any} size={28} className="text-primary" />
                 </div>
-                <h3 className="text-2xl font-bold font-sans mb-4 tracking-tight">{service.title}</h3>
-                <p className="text-muted-foreground leading-relaxed text-base">{service.description}</p>
+                <h3 className="text-xl font-bold font-serif mb-3 tracking-tight">{service.title}</h3>
+                <p className="text-muted-foreground leading-relaxed text-base font-light">{service.description}</p>
               </Card>
             ))}
           </div>
@@ -352,22 +350,22 @@ export default function Index() {
       <section id="testimonials" className="py-24 px-6">
         <div className="container mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-bold font-sans mb-6 tracking-tight">Отзывы</h2>
-            <p className="text-xl md:text-2xl text-muted-foreground">Что говорят режиссёры и продюсеры</p>
+            <h2 className="text-4xl md:text-5xl font-bold font-serif mb-6 tracking-tight">Отзывы</h2>
+            <p className="text-lg md:text-xl text-muted-foreground font-light">Что говорят режиссёры и продюсеры</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <Card
                 key={testimonial.name}
-                className="p-10 border border-border/50 hover:border-primary/60 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 bg-card/50 backdrop-blur-sm rounded-[1.75rem]"
+                className="p-8 border-0 hover:shadow-lg transition-all duration-300 bg-card rounded-[1.25rem]"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
-                <div className="text-7xl mb-8">{testimonial.avatar}</div>
-                <p className="text-lg leading-relaxed mb-8 italic text-foreground/90">"{testimonial.text}"</p>
+                <div className="text-5xl mb-6">{testimonial.avatar}</div>
+                <p className="text-base leading-relaxed mb-6 text-foreground/80 font-light">"{testimonial.text}"</p>
                 <div>
-                  <div className="font-bold font-sans text-lg tracking-tight">{testimonial.name}</div>
-                  <div className="text-sm text-muted-foreground mt-1">{testimonial.role}</div>
+                  <div className="font-semibold font-sans text-base tracking-tight">{testimonial.name}</div>
+                  <div className="text-sm text-muted-foreground mt-1 font-light">{testimonial.role}</div>
                 </div>
               </Card>
             ))}
@@ -375,21 +373,21 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="blog" className="py-24 px-6 bg-muted/20">
+      <section id="blog" className="py-24 px-6 bg-muted/30">
         <div className="container mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-bold font-sans mb-6 tracking-tight">Блог</h2>
-            <p className="text-xl md:text-2xl text-muted-foreground">Мысли о сценарном мастерстве</p>
+            <h2 className="text-4xl md:text-5xl font-bold font-serif mb-6 tracking-tight">Блог</h2>
+            <p className="text-lg md:text-xl text-muted-foreground font-light">Мысли о сценарном мастерстве</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {blogPosts.map((post, index) => (
               <Card
                 key={post.id}
-                className="overflow-hidden hover:border-primary/60 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 group cursor-pointer bg-card/50 backdrop-blur-sm border-border/50 rounded-[1.75rem]"
+                className="overflow-hidden hover:shadow-lg transition-all duration-300 group cursor-pointer bg-card border-0 rounded-[1.25rem]"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="p-10">
+                <div className="p-6">
                   <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
                     <span className="flex items-center gap-1.5">
                       <Icon name="Calendar" size={16} />
@@ -400,10 +398,10 @@ export default function Index() {
                       {post.readTime}
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold font-sans mb-4 group-hover:text-primary transition-colors tracking-tight">
+                  <h3 className="text-xl font-bold font-serif mb-3 group-hover:text-primary transition-colors tracking-tight">
                     {post.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed mb-6 text-base">{post.excerpt}</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4 text-base font-light">{post.excerpt}</p>
                   <Button variant="ghost" className="group/btn p-0 h-auto font-semibold text-primary">
                     Читать далее
                     <Icon name="ArrowRight" size={20} className="ml-2 group-hover/btn:translate-x-1 transition-transform" />
@@ -418,15 +416,15 @@ export default function Index() {
       <section id="contacts" className="py-24 px-6">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-bold font-sans mb-6 tracking-tight">Контакты</h2>
-            <p className="text-xl md:text-2xl text-muted-foreground">Давайте обсудим ваш проект</p>
+            <h2 className="text-4xl md:text-5xl font-bold font-serif mb-6 tracking-tight">Контакты</h2>
+            <p className="text-lg md:text-xl text-muted-foreground font-light">Давайте обсудим ваш проект</p>
           </div>
 
-          <Card className="p-10 md:p-14 border border-border/50 bg-card/50 backdrop-blur-sm rounded-[1.75rem]">
+          <Card className="p-10 md:p-12 border-0 bg-card rounded-[1.25rem]">
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <div className="flex gap-5">
-                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-                  <Icon name="Mail" size={24} className="text-primary" />
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Icon name="Mail" size={20} className="text-primary" />
                 </div>
                 <div>
                   <div className="font-semibold mb-1.5 text-base">Email</div>
@@ -437,8 +435,8 @@ export default function Index() {
               </div>
 
               <div className="flex gap-5">
-                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-                  <Icon name="Phone" size={24} className="text-primary" />
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Icon name="Phone" size={20} className="text-primary" />
                 </div>
                 <div>
                   <div className="font-semibold mb-1.5 text-base">Телефон</div>
@@ -449,8 +447,8 @@ export default function Index() {
               </div>
 
               <div className="flex gap-5">
-                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-                  <Icon name="MessageSquare" size={24} className="text-primary" />
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Icon name="MessageSquare" size={20} className="text-primary" />
                 </div>
                 <div>
                   <div className="font-semibold mb-1.5 text-base">Telegram</div>
@@ -461,8 +459,8 @@ export default function Index() {
               </div>
 
               <div className="flex gap-5">
-                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-                  <Icon name="MapPin" size={24} className="text-primary" />
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Icon name="MapPin" size={20} className="text-primary" />
                 </div>
                 <div>
                   <div className="font-semibold mb-1.5 text-base">Город</div>
@@ -472,11 +470,11 @@ export default function Index() {
             </div>
 
             <div className="flex justify-center gap-4 flex-wrap">
-              <Button size="lg" className="font-semibold px-8 py-6 text-base rounded-2xl hover:scale-105 transition-transform">
+              <Button size="lg" className="font-medium px-10 h-16 text-base rounded-full hover:bg-primary/90 transition-colors">
                 <Icon name="Send" size={20} className="mr-2" />
                 Написать мне
               </Button>
-              <Button size="lg" variant="outline" className="font-semibold px-8 py-6 text-base rounded-2xl hover:scale-105 transition-transform">
+              <Button size="lg" variant="outline" className="font-medium px-10 h-16 text-base rounded-full border-2 hover:bg-muted transition-colors">
                 <Icon name="Download" size={20} className="mr-2" />
                 Скачать резюме
               </Button>
@@ -485,14 +483,14 @@ export default function Index() {
         </div>
       </section>
 
-      <footer className="py-16 px-6 border-t border-border/50 bg-muted/10">
+      <footer className="py-16 px-6 border-t border-border bg-muted/30">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-center md:text-left">
-              <div className="text-2xl font-bold font-sans mb-2">
+              <div className="text-2xl font-bold font-serif mb-2">
                 Богданов<span className="text-primary">.</span>
               </div>
-              <p className="text-sm text-muted-foreground">Сценарист · Драматург</p>
+              <p className="text-sm text-muted-foreground font-light">Сценарист · Драматург</p>
             </div>
 
             <div className="flex gap-4">
@@ -510,7 +508,7 @@ export default function Index() {
               </Button>
             </div>
 
-            <div className="text-sm text-muted-foreground text-center md:text-right">
+            <div className="text-sm text-muted-foreground text-center md:text-right font-light">
               © 2024 Сергей Богданов. Все права защищены.
             </div>
           </div>
